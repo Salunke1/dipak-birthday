@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Police Tribute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Tiro+Devanagari+Marathi:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+padding:0;
+background:black;
+overflow:hidden;
+color:white;
+text-align:center;
+font-family:'Tiro Devanagari Marathi', serif;
+}
+
+/* GOLD PARTICLE RAIN */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#111 20%,#000 80%);
+z-index:-3;
+}
+
+.particles{
+position:fixed;
+width:100%;
+height:100%;
+background-image:radial-gradient(gold 1px, transparent 1px);
+background-size:30px 30px;
+animation:moveParticles 20s linear infinite;
+opacity:0.15;
+z-index:-2;
+}
+
+@keyframes moveParticles{
+from{background-position:0 0;}
+to{background-position:0 1000px;}
+}
+
+/* Pulsing Siren Glow */
+.overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,red,blue);
+mix-blend-mode:overlay;
+animation:siren 1.2s infinite alternate;
+opacity:0.2;
+z-index:-1;
+}
+
+@keyframes siren{
+from{opacity:0.1;}
+to{opacity:0.4;}
+}
+
+/* Explosion Flash */
+.flash{
+position:fixed;
+width:100%;
+height:100%;
+background:white;
+opacity:0;
+animation:explode 1s forwards;
+}
+
+@keyframes explode{
+0%{opacity:1;}
+100%{opacity:0;}
+}
+
+/* BIG CAPTION */
+.caption{
+font-family:'Orbitron', sans-serif;
+font-size:48px;
+margin-top:50px;
+color:gold;
+text-shadow:0 0 20px gold,0 0 60px red;
+animation:zoomIn 3s ease forwards;
+}
+
+@keyframes zoomIn{
+from{transform:scale(0.5);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+/* Typing Effect */
+.typing{
+font-size:22px;
+margin-top:20px;
+border-right:3px solid gold;
+white-space:nowrap;
+overflow:hidden;
+width:0;
+animation:typing 4s steps(40,end) forwards;
+animation-delay:2s;
+}
+
+@keyframes typing{
+from{width:0;}
+to{width:100%;}
+}
+
+/* Image Zoom Cinematic */
+img{
+width:280px;
+margin-top:30px;
+border-radius:20px;
+border:4px solid gold;
+box-shadow:0 0 40px gold;
+animation:zoomPhoto 6s ease-in-out infinite alternate;
+}
+
+@keyframes zoomPhoto{
+from{transform:scale(1);}
+to{transform:scale(1.08);}
+}
+
+/* Rotating Badge */
+.badge{
+font-size:80px;
+margin-top:20px;
+display:inline-block;
+animation:rotate 6s linear infinite;
+}
+
+@keyframes rotate{
+from{transform:rotateY(0deg);}
+to{transform:rotateY(360deg);}
+}
+
+.message{
+margin:25px;
+padding:20px;
+background:rgba(255,215,0,0.08);
+border:1px solid gold;
+border-radius:20px;
+font-size:18px;
+line-height:1.7;
+}
+
+.footer{
+margin-top:20px;
+font-size:20px;
+color:gold;
+}
+
+</style>
+</head>
+
+<body onclick="playTheme()">
+
+<div class="particles"></div>
+<div class="overlay"></div>
+<div class="flash"></div>
+
+<div class="typing">
+    <div class ="caption">
+HAPPY BIRTHDAY DIPAK DADA
+</div>
+</div>
+<div class="badge">🚔</div>
+
+<img src="dipak.png">
+
+<div class="typing">
+SWAG • POWER • AUTHORITY
+</div>
+
+<div class="message">
+आजचा दिवस म्हणजे रिअल पॉवरचा दिवस 🔥  
+चिंचवड पोलीस स्टेशनमध्ये नाव घेतलं की  
+ज्यांचा दरारा आधी पोहोचतो — ते म्हणजे दिपक दादा 🚔  
+
+
+
+नेहमी टॉपवर रहा.  
+नेहमी कमांडमध्ये रहा.  
+Level वाढत राहो.  
+
+— प्रशांत आणि परिवार 👑
+</div>
+
+<div class="footer">
+Proud Brother – Prashant & Family
+</div>
+
+<audio id="theme" loop>
+<source src="singham.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playTheme(){
+document.getElementById("theme").play();
+}
+</script>
+
+</body>
+</html>
