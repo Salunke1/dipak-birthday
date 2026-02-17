@@ -9,43 +9,49 @@
 
 <style>
 
-body{
+*{
+box-sizing:border-box;
 margin:0;
 padding:0;
-background:black;
-overflow:hidden;
+}
+
+body{
+background:#000;
 color:white;
 text-align:center;
 font-family:'Tiro Devanagari Marathi', serif;
+overflow-x:hidden;
 }
 
-/* GOLD PARTICLE RAIN */
+/* ===== BACKGROUND ===== */
+
 body::before{
 content:"";
 position:fixed;
 width:100%;
 height:100%;
-background:radial-gradient(circle,#111 20%,#000 80%);
+background:radial-gradient(circle at center,#111 20%,#000 80%);
 z-index:-3;
 }
 
+/* GOLD PARTICLE RAIN */
 .particles{
 position:fixed;
 width:100%;
 height:100%;
 background-image:radial-gradient(gold 1px, transparent 1px);
-background-size:30px 30px;
-animation:moveParticles 20s linear infinite;
-opacity:0.15;
+background-size:35px 35px;
+animation:moveParticles 25s linear infinite;
+opacity:0.12;
 z-index:-2;
 }
 
 @keyframes moveParticles{
 from{background-position:0 0;}
-to{background-position:0 1000px;}
+to{background-position:0 1200px;}
 }
 
-/* Pulsing Siren Glow */
+/* SIREN OVERLAY */
 .overlay{
 position:fixed;
 width:100%;
@@ -53,65 +59,54 @@ height:100%;
 background:linear-gradient(90deg,red,blue);
 mix-blend-mode:overlay;
 animation:siren 1.2s infinite alternate;
-opacity:0.2;
+opacity:0.15;
 z-index:-1;
 }
 
 @keyframes siren{
 from{opacity:0.1;}
-to{opacity:0.4;}
+to{opacity:0.35;}
 }
 
-/* Explosion Flash */
-.flash{
-position:fixed;
-width:100%;
-height:100%;
-background:white;
-opacity:0;
-animation:explode 1s forwards;
-}
-
-@keyframes explode{
-0%{opacity:1;}
-100%{opacity:0;}
+/* MAIN CONTAINER */
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
 }
 
 /* BIG CAPTION */
 .caption{
 font-family:'Orbitron', sans-serif;
-font-size:48px;
-margin-top:50px;
+font-size:clamp(28px,7vw,52px);
+margin-top:40px;
 color:gold;
 text-shadow:0 0 20px gold,0 0 60px red;
 animation:zoomIn 3s ease forwards;
 }
 
 @keyframes zoomIn{
-from{transform:scale(0.5);opacity:0;}
+from{transform:scale(0.6);opacity:0;}
 to{transform:scale(1);opacity:1;}
 }
 
-/* Typing Effect */
-.typing{
-font-size:22px;
-margin-top:20px;
-border-right:3px solid gold;
-white-space:nowrap;
-overflow:hidden;
-width:0;
-animation:typing 4s steps(40,end) forwards;
-animation-delay:2s;
+/* BADGE */
+.badge{
+font-size:clamp(50px,12vw,90px);
+margin-top:15px;
+display:inline-block;
+animation:rotate 6s linear infinite;
 }
 
-@keyframes typing{
-from{width:0;}
-to{width:100%;}
+@keyframes rotate{
+from{transform:rotateY(0deg);}
+to{transform:rotateY(360deg);}
 }
 
-/* Image Zoom Cinematic */
+/* IMAGE */
 img{
-width:280px;
+width:clamp(200px,70%,320px);
+max-width:100%;
 margin-top:30px;
 border-radius:20px;
 border:4px solid gold;
@@ -124,33 +119,42 @@ from{transform:scale(1);}
 to{transform:scale(1.08);}
 }
 
-/* Rotating Badge */
-.badge{
-font-size:80px;
+/* TRAILER TEXT */
+.typing{
+font-size:clamp(16px,4vw,22px);
 margin-top:20px;
-display:inline-block;
-animation:rotate 6s linear infinite;
+color:gold;
+border-right:3px solid gold;
+white-space:nowrap;
+overflow:hidden;
+width:0;
+animation:typing 4s steps(30,end) forwards;
+animation-delay:2s;
 }
 
-@keyframes rotate{
-from{transform:rotateY(0deg);}
-to{transform:rotateY(360deg);}
+@keyframes typing{
+from{width:0;}
+to{width:100%;}
 }
 
+/* MESSAGE BOX */
 .message{
-margin:25px;
+margin:30px auto;
 padding:20px;
 background:rgba(255,215,0,0.08);
 border:1px solid gold;
 border-radius:20px;
-font-size:18px;
-line-height:1.7;
+font-size:clamp(14px,4vw,18px);
+line-height:1.6;
+max-width:90%;
 }
 
+/* FOOTER */
 .footer{
 margin-top:20px;
-font-size:20px;
+font-size:clamp(16px,4vw,20px);
 color:gold;
+padding-bottom:40px;
 }
 
 </style>
@@ -160,16 +164,16 @@ color:gold;
 
 <div class="particles"></div>
 <div class="overlay"></div>
-<div class="flash"></div>
 
-<div class="typing">
-    <div class ="caption">
+<div class="container">
+
+<div class="caption">
 HAPPY BIRTHDAY DIPAK DADA
 </div>
-</div>
+
 <div class="badge">🚔</div>
 
-<img src="dipak.png">
+<img src="dipak.jpg" alt="Dipak Dada">
 
 <div class="typing">
 SWAG • POWER • AUTHORITY
@@ -180,7 +184,8 @@ SWAG • POWER • AUTHORITY
 चिंचवड पोलीस स्टेशनमध्ये नाव घेतलं की  
 ज्यांचा दरारा आधी पोहोचतो — ते म्हणजे दिपक दादा 🚔  
 
-
+युनिफॉर्ममध्ये तुम्ही दिसता तेव्हा  
+ती फक्त वर्दी नसते… तो पूर्ण स्वॅग असतो.  
 
 नेहमी टॉपवर रहा.  
 नेहमी कमांडमध्ये रहा.  
@@ -191,6 +196,8 @@ Level वाढत राहो.
 
 <div class="footer">
 Proud Brother – Prashant & Family
+</div>
+
 </div>
 
 <audio id="theme" loop>
@@ -205,3 +212,4 @@ document.getElementById("theme").play();
 
 </body>
 </html>
+
